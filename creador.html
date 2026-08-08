@@ -14,8 +14,10 @@ html,body{overflow-x:hidden;max-width:100vw}
 body{background:#0A0A0A;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',system-ui,sans-serif;position:relative}
 .orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0;filter:blur(75px)}
 .gl{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:14px}
-.tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:rgba(201,169,110,0.75);border:1px solid rgba(201,169,110,0.2);padding:5px 13px;border-radius:20px;margin-bottom:22px}
-.sec{position:relative;z-index:1;padding:88px 40px}
+.tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:rgba(201,169,110,0.75);border:1px solid rgba(201,169,110,0.2);padding:5px 13px;border-radius:20px;margin-bottom:16px}
+.sec{position:relative;z-index:1;padding:40px 40px}
+.sec-hero{padding-top:60px;padding-bottom:28px}
+.sec-cta{padding-top:44px;padding-bottom:44px}
 .sec-inner{max-width:920px;margin:0 auto}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .revealed{opacity:1;transform:none}
@@ -23,25 +25,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.88);backdrop-fi
 .nav-in{max-width:920px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
 .nl{display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit}
 .li{width:26px;height:26px;background:linear-gradient(145deg,#C9A96E,#8B6B3D);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0A0A0A}
-.btn-g{display:inline-flex;align-items:center;gap:7px;background:rgba(201,169,110,0.12);border:1px solid rgba(201,169,110,0.3);color:#E8C99A;font-size:12px;font-weight:500;padding:8px 16px;border-radius:9px;cursor:pointer;text-decoration:none;transition:background 0.2s}
+.btn-g{display:inline-flex;align-items:center;gap:7px;background:rgba(201,169,110,0.12);border:1px solid rgba(201,169,110,0.3);color:#E8C99A;font-size:14px;font-weight:500;padding:9px 17px;border-radius:9px;cursor:pointer;text-decoration:none;transition:background 0.2s}
 .btn-g:hover{background:rgba(201,169,110,0.2)}
 .footer-mail{color:rgba(245,245,247,0.4);text-decoration:none;transition:color 0.2s}
 .footer-mail:hover{color:#E8C99A}
 .footer-mail b{color:rgba(201,169,110,0.75);font-weight:600;margin-right:5px}
 .footer-social{color:#C9A96E;display:flex;align-items:center;opacity:0.7;transition:opacity 0.2s}
 .footer-social:hover{opacity:1}
-.avatar-ph{width:112px;height:112px;border-radius:10px;object-fit:cover;object-position:50% 38%;border:1.5px solid rgba(201,169,110,0.35);box-shadow:0 0 0 6px rgba(201,169,110,0.06);display:block;margin:0 auto 24px}
+.avatar-ph{width:104px;height:104px;border-radius:10px;object-fit:cover;object-position:50% 38%;border:1.5px solid rgba(201,169,110,0.35);box-shadow:0 0 0 6px rgba(201,169,110,0.06);display:block;margin:0 auto 18px}
 .chip-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.chip{padding:8px 18px;border-radius:20px;border:1px solid rgba(201,169,110,0.25);background:rgba(201,169,110,0.06);font-size:13px;font-weight:500;color:#E8C99A;letter-spacing:-0.1px}
+.chip{padding:9px 19px;border-radius:20px;border:1px solid rgba(201,169,110,0.25);background:rgba(201,169,110,0.06);font-size:15px;font-weight:500;color:#E8C99A;letter-spacing:-0.1px}
 .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cred-card{background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:22px;display:flex;gap:14px;align-items:flex-start}
+.cred-card{background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem;display:flex;gap:16px;align-items:flex-start}
 .cred-card.accent{border-color:rgba(201,169,110,0.4);background:rgba(201,169,110,0.05)}
-.cred-icon{width:38px;height:38px;border-radius:10px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C9A96E}
-.cred-card-title{font-size:14px;font-weight:600;color:#F5F5F7;letter-spacing:-0.2px;margin-bottom:5px}
-.cred-card-sub{font-size:12px;color:rgba(245,245,247,0.45);line-height:1.55}
+.cred-icon{width:48px;height:48px;border-radius:12px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C9A96E}
+.cred-card-title{font-size:19px;font-weight:600;color:#F5F5F7;letter-spacing:-0.2px;margin-bottom:6px}
+.cred-card-sub{font-size:15px;color:rgba(245,245,247,0.5);line-height:1.55}
 .cred-card.accent .cred-card-title{color:#E8C99A}
 @media(max-width:600px){
-  .sec{padding:60px 22px}
+  .sec{padding:26px 20px}
+  .sec-hero{padding-top:36px;padding-bottom:22px}
+  .sec-cta{padding-top:32px;padding-bottom:32px}
   nav{padding:0 20px}
   .cred-grid{grid-template-columns:1fr}
 }
@@ -62,13 +66,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.88);backdrop-fi
   </div>
 </nav>
 
-<div class="sec" style="padding:100px 40px 70px;text-align:center">
+<div class="sec sec-hero" style="text-align:center">
   <img class="avatar-ph" id="hero-av" src="/img/jc-foto-perfil.jpg" alt="Juan Carlos Arias E.">
   <div class="tag" id="hero-tag">Construido desde la experiencia</div>
-  <h1 id="hh" style="font-size:clamp(28px,4.6vw,46px);font-weight:500;letter-spacing:-1.3px;line-height:1.15;margin:0 auto 24px;max-width:720px">
+  <h1 id="hh" style="font-size:clamp(28px,4.6vw,46px);font-weight:500;letter-spacing:-1.3px;line-height:1.15;margin:0 auto 18px;max-width:720px">
     El diagnóstico detrás de EOM
   </h1>
-  <p id="hp" style="font-size:clamp(14px,1.9vw,16px);color:rgba(245,245,247,0.55);line-height:1.85;max-width:660px;margin:0 auto">
+  <p id="hp" style="font-size:clamp(15.5px,2.2vw,17px);color:rgba(245,245,247,0.6);line-height:1.7;max-width:660px;margin:0 auto">
     Los sistemas que funcionan en las grandes corporaciones nunca llegan a la pyme. Veinte años liderando transformación en operaciones reales — FP&amp;A, gestión de P&amp;L, programas de escalamiento global en BHP, Amplifon y 20th Century Fox/Warner Bros. — mostraron la misma brecha una y otra vez: esos sistemas exigen equipos de consultores y presupuestos que ninguna pyme tiene. EOM nace de destilar esos mismos sistemas a una herramienta que cualquier empresa pequeña puede usar sola, sin consultores de por vida.
   </p>
 </div>
@@ -81,7 +85,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.88);backdrop-fi
       <div class="chip">20th Century Fox / Warner Bros.</div>
       <div class="chip">PwC</div>
     </div>
-    <p class="reveal" style="font-size:13px;color:rgba(245,245,247,0.45);line-height:1.7;max-width:560px;margin:20px auto 0">
+    <p class="reveal" style="font-size:clamp(15px,1.8vw,16px);color:rgba(245,245,247,0.5);line-height:1.6;max-width:560px;margin:16px auto 0">
       Más de 15 años liderando FP&amp;A, gestión de P&amp;L y programas de transformación en Chile, Singapur, Malasia y Filipinas.
     </p>
   </div>
@@ -90,38 +94,38 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.88);backdrop-fi
 <div class="sec">
   <div class="sec-inner">
     <div class="tag reveal">Formación</div>
-    <h2 class="reveal" style="font-size:clamp(20px,2.8vw,26px);font-weight:500;letter-spacing:-0.5px;margin-bottom:32px">Credenciales</h2>
+    <h2 class="reveal" style="font-size:clamp(24px,4vw,32px);font-weight:500;letter-spacing:-0.5px;margin-bottom:24px">Trayectoria académica</h2>
     <div class="cred-grid reveal">
       <div class="cred-card">
-        <div class="cred-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg></div>
+        <div class="cred-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg></div>
         <div>
           <div class="cred-card-title">MBA</div>
           <div class="cred-card-sub">Universidad de Chile, Distinción Máxima</div>
         </div>
       </div>
       <div class="cred-card">
-        <div class="cred-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2Z"></path><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22Z"></path></svg></div>
+        <div class="cred-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2Z"></path><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22Z"></path></svg></div>
         <div>
           <div class="cred-card-title">Ingeniería</div>
           <div class="cred-card-sub">Sistemas de Información y Control de Gestión</div>
         </div>
       </div>
       <div class="cred-card">
-        <div class="cred-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path><path d="m9 15 2 2 4-4"></path></svg></div>
+        <div class="cred-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path><path d="m9 15 2 2 4-4"></path></svg></div>
         <div>
           <div class="cred-card-title">Contador Auditor</div>
           <div class="cred-card-sub">Universidad de Chile</div>
         </div>
       </div>
       <div class="cred-card">
-        <div class="cred-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"></circle></svg></div>
+        <div class="cred-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"></circle></svg></div>
         <div>
           <div class="cred-card-title">Black Belt</div>
           <div class="cred-card-sub">Lean Six Sigma</div>
         </div>
       </div>
       <div class="cred-card accent" style="grid-column:1 / -1">
-        <div class="cred-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M12 16v4"></path><path d="M8 20h8"></path><path d="m8 9 3 2 5-4"></path></svg></div>
+        <div class="cred-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M12 16v4"></path><path d="M8 20h8"></path><path d="m8 9 3 2 5-4"></path></svg></div>
         <div>
           <div class="cred-card-title">Docencia</div>
           <div class="cred-card-sub">Profesor adjunto, cátedra Gestión de Portafolio de Proyectos de Sistemas y Tecnologías de Información, Magíster en Sistemas de Información e Inteligencia de Negocios (formato weekend), Universidad de Chile, desde sept. 2026; docencia previa de pregrado, U. de Chile</div>
@@ -131,11 +135,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.88);backdrop-fi
   </div>
 </div>
 
-<div class="sec" style="text-align:center;padding:90px 40px">
+<div class="sec sec-cta" style="text-align:center">
   <div style="position:absolute;width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.07),transparent 70%);filter:blur(80px);z-index:0"></div>
   <div style="position:relative;z-index:1">
-    <h2 class="reveal" style="font-size:clamp(22px,3.2vw,34px);font-weight:500;letter-spacing:-0.6px;margin:0 auto 32px;max-width:560px">Esto es lo que hay detrás de EOM.<br>Ahora pruébalo en tu empresa.</h2>
-    <a href="/index.html" class="btn-g reveal" style="padding:12px 24px;font-size:14px">← Volver a EOM</a>
+    <h2 class="reveal" style="font-size:clamp(24px,3.6vw,32px);font-weight:500;letter-spacing:-0.6px;margin:0 auto 24px;max-width:560px">Esto es lo que hay detrás de EOM.<br>Ahora pruébalo en tu empresa.</h2>
+    <a href="/index.html" class="btn-g reveal" style="padding:13px 26px;font-size:15px">← Volver a EOM</a>
   </div>
 </div>
 
