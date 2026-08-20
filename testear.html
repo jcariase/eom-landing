@@ -126,7 +126,7 @@
       <div class="q" data-req="rubro">
         <label class="t">¿A qué se dedica? *</label>
         <div class="opts" data-name="rubro" data-opts='["Comercio / venta de productos","Servicios profesionales","Producción, taller o fábrica","Gastronomía","Construcción o servicios técnicos","Transporte o logística","Otro"]'></div>
-        <input type="text" id="rubro_otro" placeholder="¿Cuál?" style="margin-top:9px;display:none">
+        <input type="text" id="rubro_otro" placeholder="Cuéntame a qué se dedica *" style="margin-top:9px;display:none">
       </div>
 
       <div class="q" data-req="personas">
@@ -153,7 +153,7 @@
       </div>
 
       <div class="q" data-req="contador_pago">
-        <label class="t">¿Cuánto pagas al mes por eso? *</label>
+        <label class="t">¿Cuánto pagas al mes por el servicio contable? *</label>
         <div class="opts" data-name="contador_pago" data-opts='["Menos de $50.000","Entre $50.000 y $150.000","Más de $150.000","Nada","No sé exactamente"]'></div>
       </div>
 
@@ -211,7 +211,7 @@
       </div>
 
       <div class="q" data-req="puede_tiempo">
-        <label class="t">Para probar esto necesito una hora contigo, y unos 20 minutos al mes después. ¿Puedes? *</label>
+        <label class="t">Para ayudarte necesito una hora de tu tiempo, y unos 30 minutos al mes siguiente. ¿Puedes? *</label>
         <div class="opts" data-name="puede_tiempo" data-opts='["Sí, sin problema","Sí, pero tendría que ser en un horario específico","No estoy seguro","No tengo ese tiempo hoy"]'></div>
       </div>
 
@@ -324,6 +324,13 @@ function valida(n) {
     if (el.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) {
       falla(err, el, 'Ese correo no se ve válido.'); return false
     }
+  }
+  // "Otro" sin explicar no sirve de nada: es justo el caso que hay que leer.
+  if (n === 1 && R.rubro === 'Otro' && !$('#rubro_otro').value.trim()) {
+    falla(err, $('#rubro_otro'), 'Cuéntame a qué se dedica tu negocio.'); return false
+  }
+  if (n === 4 && (R.dolores || []).includes('Otro') && !$('#dolor_otro').value.trim()) {
+    falla(err, $('#dolor_otro'), 'Cuéntame cuál es ese "otro".'); return false
   }
   for (const q of sec.querySelectorAll('[data-req]')) {
     const name = q.dataset.req
