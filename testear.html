@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EOM · Postula a testear la metodología</title>
+<meta name="description" content="Busco 5 dueños de negocio para probar una metodología de gestión. A cambio, una consultoría con diagnóstico completo, sin costo.">
+<meta property="og:title" content="¿Sabes cuánto ganó tu negocio el mes pasado?">
+<meta property="og:description" content="Busco 5 dueños de negocio para probar una metodología. A cambio: una consultoría con diagnóstico, sin costo.">
+<style>
+  :root{
+    --bg:#0B0D10; --bg2:#141821; --bg3:#1B2029; --line:#272E3A;
+    --txt:#E8EAED; --txt2:#9AA3AF; --gold:#C9A24A; --gold2:#E2C173;
+    --ok:#3FA37A; --err:#D8674A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:660px;margin:0 auto;padding:28px 20px 80px}
+  header{text-align:center;padding:14px 0 26px}
+  .logo{font-size:13px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+  h1{font-size:27px;line-height:1.28;margin:20px 0 12px;font-weight:600}
+  .lead{color:var(--txt2);font-size:15px;margin:0 0 8px}
+  .bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0 12px;margin-bottom:8px}
+  .bar-track{height:4px;background:var(--bg3);border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .3s ease}
+  .bar-txt{font-size:11px;color:var(--txt2);margin-top:7px;letter-spacing:.05em}
+  .step{display:none}
+  .step.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:22px 0 14px}
+  .q{margin:0 0 22px;padding:18px;background:var(--bg2);border:1px solid var(--line);border-radius:12px}
+  .q > label.t{display:block;font-size:15px;font-weight:500;margin-bottom:12px}
+  .hint{font-size:12.5px;color:var(--txt2);margin:-6px 0 12px}
+  input[type=text],input[type=email],input[type=tel],textarea,select{
+    width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:9px;
+    color:var(--txt);padding:11px 13px;font-size:15px;font-family:inherit}
+  textarea{min-height:82px;resize:vertical}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;background:var(--bg3);
+    border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:14.5px;transition:.12s}
+  .opt:hover{border-color:#3A4453}
+  .opt input{accent-color:var(--gold);margin:3px 0 0;flex-shrink:0;width:16px;height:16px}
+  .opt.sel{border-color:var(--gold);background:rgba(201,162,74,.09)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:520px){.row{grid-template-columns:1fr}h1{font-size:23px}}
+  .nav{display:flex;gap:10px;margin-top:26px}
+  button{font-family:inherit;font-size:15px;border-radius:10px;padding:13px 22px;cursor:pointer;border:1px solid transparent}
+  .prim{background:var(--gold);color:#15100A;font-weight:600;flex:1}
+  .prim:hover{background:var(--gold2)}
+  .prim:disabled{opacity:.45;cursor:not-allowed}
+  .ghost{background:transparent;border-color:var(--line);color:var(--txt2)}
+  .ghost:hover{color:var(--txt)}
+  .err{color:var(--err);font-size:13.5px;margin-top:12px;min-height:19px}
+  .box{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:10px;padding:16px 18px;margin:20px 0;font-size:14.5px;color:var(--txt2)}
+  .box strong{color:var(--txt)}
+  .done{text-align:center;padding:34px 0}
+  .done .tick{font-size:40px;color:var(--ok)}
+  .muted{font-size:12px;color:var(--txt2);text-align:center;margin-top:30px;line-height:1.7}
+  a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">E O M</div>
+    <h1 id="hero">¿Sabes cuánto ganó tu negocio el mes pasado?</h1>
+    <p class="lead">No cuánto vendiste. Cuánto <strong>ganaste</strong>.</p>
+  </header>
+
+  <!-- PASO 0 · INTRO -->
+  <section class="step on" data-step="0">
+    <div class="box">
+      Estoy probando una metodología para que un dueño de pyme pueda responder esa
+      pregunta <strong>solo, todos los meses, en 20 minutos</strong>.
+      <br><br>
+      Busco <strong>5 personas</strong> que la prueben conmigo. El trato: yo te hago una
+      consultoría de una hora con un diagnóstico de tu negocio, sin costo. Tú me das tu
+      opinión honesta. Nada más, y sin compromiso después.
+    </div>
+    <p class="lead">Son 18 preguntas, casi todas de un clic. Unos 3 minutos.</p>
+    <div class="nav"><button class="prim" data-go="1">Empezar →</button></div>
+  </section>
+
+  <div class="bar" id="bar" style="display:none">
+    <div class="bar-track"><div class="bar-fill" id="fill"></div></div>
+    <div class="bar-txt" id="bartxt"></div>
+  </div>
+
+  <form id="form" autocomplete="on">
+
+    <!-- PASO 1 · QUIÉN ERES -->
+    <section class="step" data-step="1">
+      <div class="kicker">1 de 4 · Quién eres</div>
+
+      <div class="q">
+        <label class="t" for="nombre">Nombre y apellido *</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="q">
+        <label class="t" for="email">Correo *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="q">
+        <label class="t" for="whatsapp">WhatsApp *</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+56 9 ..." required>
+      </div>
+      <div class="q">
+        <label class="t" for="empresa">Nombre de tu negocio *</label>
+        <input type="text" id="empresa" name="empresa" required>
+      </div>
+
+      <div class="q" data-req="rubro">
+        <label class="t">¿A qué se dedica? *</label>
+        <div class="opts" data-name="rubro" data-opts='["Comercio / venta de productos","Servicios profesionales","Producción, taller o fábrica","Gastronomía","Construcción o servicios técnicos","Transporte o logística","Otro"]'></div>
+        <input type="text" id="rubro_otro" placeholder="¿Cuál?" style="margin-top:9px;display:none">
+      </div>
+
+      <div class="q" data-req="personas">
+        <label class="t">¿Cuántas personas trabajan, incluyéndote? *</label>
+        <div class="opts" data-name="personas" data-opts='["Solo yo","2 a 5","6 a 15","Más de 15"]'></div>
+      </div>
+
+      <div class="q" data-req="ventas_mes">
+        <label class="t">¿Cuánto vende el negocio en un mes normal? *</label>
+        <div class="opts" data-name="ventas_mes" data-opts='["Menos de $2 millones","Entre $2 y $5 millones","Entre $5 y $15 millones","Más de $15 millones","Prefiero no decirlo"]'></div>
+      </div>
+
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="ghost" data-go="0">← Atrás</button><button type="button" class="prim" data-go="2">Continuar →</button></div>
+    </section>
+
+    <!-- PASO 2 · TU CONTADOR -->
+    <section class="step" data-step="2">
+      <div class="kicker">2 de 4 · Tu contador</div>
+
+      <div class="q" data-req="contabilidad_quien">
+        <label class="t">¿Quién lleva la contabilidad? *</label>
+        <div class="opts" data-name="contabilidad_quien" data-opts='["Un contador externo","Un familiar o conocido","Yo mismo","Nadie / no llevo contabilidad formal"]'></div>
+      </div>
+
+      <div class="q" data-req="contador_pago">
+        <label class="t">¿Cuánto pagas al mes por eso? *</label>
+        <div class="opts" data-name="contador_pago" data-opts='["Menos de $50.000","Entre $50.000 y $150.000","Más de $150.000","Nada","No sé exactamente"]'></div>
+      </div>
+
+      <div class="q" data-req="contador_ayuda">
+        <label class="t">Tu contador te entrega los impuestos al día. Fuera de eso, ¿te ayuda a entender cómo va tu negocio? *</label>
+        <div class="opts" data-name="contador_ayuda" data-opts='["Sí, me explica y me aconseja","Algo, pero tengo que preguntarle yo","No, solo hace los impuestos","Casi no hablamos"]'></div>
+      </div>
+
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="ghost" data-go="1">← Atrás</button><button type="button" class="prim" data-go="3">Continuar →</button></div>
+    </section>
+
+    <!-- PASO 3 · TUS NÚMEROS -->
+    <section class="step" data-step="3">
+      <div class="kicker">3 de 4 · Tus números</div>
+      <p class="hint">No hay respuestas malas. Mientras más honesto, más útil te va a servir el diagnóstico.</p>
+
+      <div class="q" data-req="sabe_ventas">
+        <label class="t">¿Cuánto vendiste el mes pasado? *</label>
+        <div class="opts" data-name="sabe_ventas" data-opts='["Sé la cifra exacta","Sé más o menos","Tendría que buscarla","Se la tendría que preguntar al contador"]'></div>
+      </div>
+
+      <div class="q" data-req="sabe_utilidad">
+        <label class="t">¿Tu negocio ganó o perdió plata el mes pasado? *</label>
+        <div class="opts" data-name="sabe_utilidad" data-opts='["Lo sé con certeza y sé cuánto","Creo que gané, pero no sé cuánto","Me guío por la plata que quedó en la cuenta","No lo sé"]'></div>
+      </div>
+
+      <div class="q" data-req="costo_vs_gasto">
+        <label class="t">La diferencia entre un <strong>costo</strong> y un <strong>gasto</strong> en tu negocio: *</label>
+        <div class="opts" data-name="costo_vs_gasto" data-opts='["La tengo clara y sé cuáles son los míos","Sé la diferencia, pero no los tengo separados","No tengo clara la diferencia","Nunca me lo había planteado"]'></div>
+      </div>
+
+      <div class="q" data-req="usa_sii">
+        <label class="t">¿Entras tú al portal del SII? *</label>
+        <div class="opts" data-name="usa_sii" data-opts='["Sí, entro y descargo mis informes","Tengo la clave pero casi no entro","Entra solo mi contador","No sé ni cuál es mi clave"]'></div>
+      </div>
+
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="ghost" data-go="2">← Atrás</button><button type="button" class="prim" data-go="4">Continuar →</button></div>
+    </section>
+
+    <!-- PASO 4 · DOLOR Y COMPROMISO -->
+    <section class="step" data-step="4">
+      <div class="kicker">4 de 4 · Qué te complica</div>
+
+      <div class="q" data-req="dolores">
+        <label class="t">¿Qué es lo que más te complica hoy? <span style="color:var(--txt2);font-weight:400">(marca hasta 2)</span> *</label>
+        <div class="opts multi" data-name="dolores" data-max="2" data-opts='["No saber si estoy ganando o perdiendo","La plata no me alcanza aunque venda bien","Vender más / conseguir clientes","Me falta tiempo, hago todo yo","Cobrar lo que me deben","Los impuestos y el SII","Que las cosas se hagan bien sin que yo esté encima","Otro"]'></div>
+        <input type="text" id="dolor_otro" placeholder="¿Cuál?" style="margin-top:9px;display:none">
+      </div>
+
+      <div class="q">
+        <label class="t" for="dolor_principal">Si alguien pudiera resolverte <strong>una sola cosa</strong> del negocio en los próximos 3 meses, ¿cuál sería? *</label>
+        <textarea id="dolor_principal" required placeholder="Con tus palabras, como se lo contarías a un amigo."></textarea>
+      </div>
+
+      <div class="q" data-req="puede_tiempo">
+        <label class="t">Para probar esto necesito una hora contigo, y unos 20 minutos al mes después. ¿Puedes? *</label>
+        <div class="opts" data-name="puede_tiempo" data-opts='["Sí, sin problema","Sí, pero tendría que ser en un horario específico","No estoy seguro","No tengo ese tiempo hoy"]'></div>
+      </div>
+
+      <div class="q">
+        <label class="t">¿Qué día y horario te acomoda? *</label>
+        <div class="row">
+          <select id="dia_preferido" required>
+            <option value="">Día…</option>
+            <option>Lunes</option><option>Martes</option><option>Miércoles</option>
+            <option>Jueves</option><option>Viernes</option><option>Sábado</option>
+            <option>Cualquiera me sirve</option>
+          </select>
+          <select id="horario_preferido" required>
+            <option value="">Horario…</option>
+            <option>En la mañana</option><option>Al mediodía</option>
+            <option>En la tarde</option><option>Después de las 19:00</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="err"></div>
+      <div class="nav"><button type="button" class="ghost" data-go="3">← Atrás</button><button type="submit" class="prim" id="send">Enviar postulación</button></div>
+      <p class="muted">Tus datos se usan solo para contactarte por esta prueba. No los comparto con nadie y los puedes hacer eliminar escribiendo a app@eomapp.cl.</p>
+    </section>
+  </form>
+
+  <!-- PASO 5 · GRACIAS -->
+  <section class="step" data-step="5">
+    <div class="done">
+      <div class="tick">✓</div>
+      <h1 id="graciasTitulo" style="font-size:23px">Listo, quedaste postulado</h1>
+      <p class="lead" id="graciasTexto"></p>
+      <div class="box" style="text-align:left">
+        <strong>Qué pasa ahora:</strong><br>
+        Te escribo por WhatsApp en los próximos días para coordinar la hora.
+        Si quedas seleccionado, en esa sesión revisamos tu negocio y te dejo el
+        diagnóstico por escrito, sin costo.
+      </div>
+      <p class="muted">Si tienes una duda antes: <a href="mailto:app@eomapp.cl">app@eomapp.cl</a></p>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const SUPABASE_URL = 'https://zjmtyzazbdytibebdgee.supabase.co'
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqbXR5emF6YmR5dGliZWJkZ2VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1ODIxMjgsImV4cCI6MjA5MTE1ODEyOH0.w6wTQGii5wb05FHOCEy-aGe1eyFyT6J3CmA1Iy8QBR4'
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON)
+
+const R = {}                      // respuestas
+const $  = s => document.querySelector(s)
+const $$ = s => [...document.querySelectorAll(s)]
+
+// ── Construir las opciones desde data-opts ──────────────────────────────
+$$('.opts').forEach(box => {
+  const name  = box.dataset.name
+  const multi = box.classList.contains('multi')
+  const max   = +(box.dataset.max || 0)
+  JSON.parse(box.dataset.opts).forEach((txt, i) => {
+    const id = `${name}_${i}`
+    const lab = document.createElement('label')
+    lab.className = 'opt'
+    lab.innerHTML = `<input type="${multi ? 'checkbox' : 'radio'}" name="${name}" id="${id}" value="${txt.replace(/"/g,'&quot;')}"><span>${txt}</span>`
+    box.appendChild(lab)
+  })
+  box.addEventListener('change', () => {
+    const sel = [...box.querySelectorAll('input:checked')]
+    // Tope de selecciones en las múltiples: se destilda la más antigua.
+    if (multi && max && sel.length > max) { sel[0].checked = false }
+    box.querySelectorAll('.opt').forEach(o => o.classList.toggle('sel', o.querySelector('input').checked))
+    const vals = [...box.querySelectorAll('input:checked')].map(i => i.value)
+    R[name] = multi ? vals : (vals[0] || null)
+    // "Otro" abre su campo de texto.
+    const otro = name === 'rubro' ? $('#rubro_otro') : name === 'dolores' ? $('#dolor_otro') : null
+    if (otro) otro.style.display = vals.includes('Otro') ? 'block' : 'none'
+  })
+})
+
+// ── Navegación por pasos ────────────────────────────────────────────────
+const TOT = 4
+let paso = 0
+
+function ir(n) {
+  if (n > paso && !valida(paso)) return
+  paso = n
+  $$('.step').forEach(s => s.classList.toggle('on', +s.dataset.step === n))
+  $('#bar').style.display = (n >= 1 && n <= TOT) ? 'block' : 'none'
+  if (n >= 1 && n <= TOT) {
+    $('#fill').style.width = (n / TOT * 100) + '%'
+    $('#bartxt').textContent = `Paso ${n} de ${TOT}`
+  }
+  window.scrollTo({ top: 0 })
+}
+
+// Los campos de texto obligatorios de cada paso, para validar sin depender
+// del submit nativo (que no ve los pasos ocultos).
+const TEXTOS = { 1: ['nombre','email','whatsapp','empresa'], 4: ['dolor_principal','dia_preferido','horario_preferido'] }
+
+function valida(n) {
+  const sec = $(`.step[data-step="${n}"]`)
+  if (!sec) return true
+  const err = sec.querySelector('.err')
+  if (err) err.textContent = ''
+  for (const id of (TEXTOS[n] || [])) {
+    const el = $('#' + id)
+    if (!el.value.trim()) { falla(err, el, 'Falta completar un campo obligatorio.'); return false }
+    if (el.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) {
+      falla(err, el, 'Ese correo no se ve válido.'); return false
+    }
+  }
+  for (const q of sec.querySelectorAll('[data-req]')) {
+    const name = q.dataset.req
+    const v = R[name]
+    if (!v || (Array.isArray(v) && !v.length)) {
+      falla(err, q, 'Falta responder una pregunta.'); return false
+    }
+  }
+  return true
+}
+
+function falla(err, el, msg) {
+  if (err) err.textContent = msg
+  el.scrollIntoView({ block: 'center' })
+  if (el.focus) el.focus()
+}
+
+$$('[data-go]').forEach(b => b.addEventListener('click', () => ir(+b.dataset.go)))
+
+// ── Puntajes ────────────────────────────────────────────────────────────
+// Ceguera: qué tan a oscuras está respecto de sus propios números (0 = ve todo,
+// 12 = no ve nada). Mientras más alto, más valor le agrega EOM.
+const P_CEGUERA = {
+  sabe_ventas:     { 'Sé la cifra exacta':0, 'Sé más o menos':1, 'Tendría que buscarla':2, 'Se la tendría que preguntar al contador':3 },
+  sabe_utilidad:   { 'Lo sé con certeza y sé cuánto':0, 'Creo que gané, pero no sé cuánto':2, 'Me guío por la plata que quedó en la cuenta':3, 'No lo sé':3 },
+  costo_vs_gasto:  { 'La tengo clara y sé cuáles son los míos':0, 'Sé la diferencia, pero no los tengo separados':1, 'No tengo clara la diferencia':2, 'Nunca me lo había planteado':3 },
+  contador_ayuda:  { 'Sí, me explica y me aconseja':0, 'Algo, pero tengo que preguntarle yo':1, 'No, solo hace los impuestos':3, 'Casi no hablamos':3 },
+}
+// Capacidad: si va a poder hacer su parte (0 = no puede, 6 = sin problema).
+const P_CAPACIDAD = {
+  usa_sii:      { 'Sí, entro y descargo mis informes':3, 'Tengo la clave pero casi no entro':2, 'Entra solo mi contador':1, 'No sé ni cuál es mi clave':0 },
+  puede_tiempo: { 'Sí, sin problema':3, 'Sí, pero tendría que ser en un horario específico':2, 'No estoy seguro':1, 'No tengo ese tiempo hoy':0 },
+}
+const suma = tabla => Object.entries(tabla).reduce((t,[k,m]) => t + (m[R[k]] ?? 0), 0)
+
+function clasificar(ceguera, capacidad) {
+  const aCiegas = ceguera >= 6
+  const puede   = capacidad >= 4
+  if (aCiegas &&  puede) return 'ideal'          // testeador ideal
+  if (aCiegas && !puede) return 'necesita_apoyo' // le sirve, pero consume horas
+  if (!aCiegas && puede) return 'ordenado'       // valida el método, mejora poco visible
+  return 'puntual'                               // consultoría por proyecto, no piloto
+}
+
+// El visitante ve un diagnóstico útil, no la etiqueta comercial.
+const CIERRE = {
+  ideal:          'Por lo que respondiste, eres exactamente el perfil que estoy buscando.',
+  necesita_apoyo: 'Por lo que respondiste, hay harto que ordenar — y eso es justamente donde más se nota la mejora.',
+  ordenado:       'Ya tienes buena parte de tus números bajo control. Ahí la conversación es sobre qué hacer con ellos.',
+  puntual:        'Gracias por tomarte el tiempo. Reviso tu caso y te escribo.',
+}
+
+// ── Envío ───────────────────────────────────────────────────────────────
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault()
+  if (!valida(4)) return
+  const btn = $('#send')
+  btn.disabled = true; btn.textContent = 'Enviando…'
+
+  const ceguera   = suma(P_CEGUERA)
+  const capacidad = suma(P_CAPACIDAD)
+  const cuadrante = clasificar(ceguera, capacidad)
+
+  const fila = {
+    nombre: $('#nombre').value.trim(),
+    email: $('#email').value.trim().toLowerCase(),
+    whatsapp: $('#whatsapp').value.trim(),
+    empresa: $('#empresa').value.trim(),
+    rubro: R.rubro, rubro_otro: $('#rubro_otro').value.trim() || null,
+    personas: R.personas, ventas_mes: R.ventas_mes,
+    contabilidad_quien: R.contabilidad_quien, contador_pago: R.contador_pago,
+    contador_ayuda: R.contador_ayuda,
+    sabe_ventas: R.sabe_ventas, sabe_utilidad: R.sabe_utilidad,
+    costo_vs_gasto: R.costo_vs_gasto, usa_sii: R.usa_sii,
+    dolores: R.dolores || [], dolor_otro: $('#dolor_otro').value.trim() || null,
+    dolor_principal: $('#dolor_principal').value.trim(),
+    puede_tiempo: R.puede_tiempo,
+    dia_preferido: $('#dia_preferido').value,
+    horario_preferido: $('#horario_preferido').value,
+    score_ceguera: ceguera, score_capacidad: capacidad, cuadrante,
+    // ?g=nombre-del-grupo en el link permite saber de qué grupo vino cada uno.
+    origen: new URLSearchParams(location.search).get('g') || 'directo',
+  }
+
+  const { error } = await sb.from('testeadores').insert(fila)
+  if (error) {
+    console.error('[testeadores]', error)
+    $('.step[data-step="4"] .err').textContent =
+      'No pudimos guardar tu postulación. Intenta de nuevo, o escríbeme a app@eomapp.cl.'
+    btn.disabled = false; btn.textContent = 'Enviar postulación'
+    return
+  }
+
+  $('#hero').textContent = '¡Gracias!'
+  document.querySelector('header .lead').style.display = 'none'
+  $('#graciasTitulo').textContent = `Listo, ${fila.nombre.split(' ')[0]}`
+  $('#graciasTexto').textContent = CIERRE[cuadrante]
+  ir(5)
+})
+</script>
+</body>
+</html>
